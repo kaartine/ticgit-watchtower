@@ -1,0 +1,186 @@
+$open: #67e600
+$resolved: #6961ff
+$hold: #f5b800
+$invalid: #ff6961
+
+body
+  color: #333333
+
+a
+  color: #1c90fd
+  text-decoration: none
+
+a:hover
+  background-color: #ffffb6
+
+h1
+  font:
+    size: 182%
+    margin: 1em 0
+    family: "Avant Garde", Arial, sans-serif
+
+strong
+  font-weight: bold
+
+#Content
+  width: 960px
+  text-align: left
+  margin: 0 auto
+
+#title
+  background-color: #eeeeee
+  padding: 2em 4em
+  font-family: "Avant Garde", Arial, sans-serif
+  h2
+    font-size: 182%
+
+#Navigation
+  font-family: "Avant Garde", Arial, sans-serif
+  li
+    width: auto
+    float: left
+    padding: 0.5em 1em
+  ul.global
+    background-color: #333333
+    border:
+      bottom: 1px solid #666666
+      top: 1px solid #cccccc
+    li
+      border-top: 3px solid #333333
+    a
+      font-weight: bold
+      //text-shadow: black 1px 1px 0px
+      //color: #96cbfe
+    a:hover
+      background-color: transparent
+  #SavedViews
+    background-color: #a8ff60
+    padding: 0.5em 1em
+    clear: both
+    -webkit-border-bottom-right-radius: 8px
+    -webkit-border-bottom-left-radius: 8px
+    h4
+      font-weight: bold
+      float: left
+      margin-right: 1em
+    p
+      float: left
+    li
+      border: 0
+      padding: 0
+      margin: 0 0.5em
+    a
+      color: #333333
+      text-decoration: underline
+
+#Main
+  margin: 1em 0
+  border: 2px solid #333333
+  padding: 1em
+  -webkit-border-bottom-right-radius: 8px
+  -webkit-border-bottom-left-radius: 8px
+
+h3
+  background-color: #a8ff60
+  margin: 0.5em 0
+  font:
+    weight: bold
+    size: 116%
+
+label
+  font-weight: bold
+
+dl
+  margin: 1em
+
+dt
+  margin: 1em 0 0.5em 0
+
+input#ticket_title
+  font-size: 131%
+
+input.text,
+textarea
+  width: 50%
+  padding: 0.2em
+
+form
+  p
+    border-top: 1px solid #cccccc
+    margin: 1em
+    padding: 1em 0
+
+.open
+  background-color: $open
+  color: white
+
+.resolved
+  background-color: $resolved
+  color: white
+
+.hold
+  background-color: $hold
+  color: white
+
+.invalid
+  background-color: $invalid
+  color: white
+
+.comment,
+.ticket
+  border:
+    top: 1px solid #cccccc
+    bottom: 1px solid #cccccc
+  padding: 0.5em 0
+  line-height: 1.4em
+  margin: -1px 0 0 1em
+  .title
+    font-size: 116%
+  .tags
+    a
+      background-color: #eeeeee
+
+.comment .avatar,
+.ticket .avatar
+  display: block
+  border: 1px solid #666666
+  padding: 2px
+  margin: 0 0.6em 0 0.5em
+  background: white
+  float: left
+
+div.ticket
+  padding: 2em 1em
+  border-top: none
+  background-color: #eeeeee
+  line-height: 1.8em
+  margin:
+    bottom: 2em
+    left: 0
+
+#AllTicketsPage #AllTicketsLink
+  border-top: 3px solid #a8ff60
+
+#OpenTicketsPage #OpenTicketsLink
+  border-top: 3px solid $open
+
+#ResolvedTicketsPage #ResolvedTicketsLink
+  border-top: 3px solid $resolved
+
+#HoldTicketsPage #HoldTicketsLink
+  border-top: 3px solid $hold
+
+#InvalidTicketsPage #InvalidTicketsLink
+  border-top: 3px solid $invalid
+
+#Navigation ul.global:after
+#Navigation #SavedViews:after
+
+.ticket:after
+
+.comment:after
+  content: "."
+  height: 0
+  visibility: hidden
+  display: block
+  clear: both

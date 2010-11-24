@@ -22,7 +22,7 @@ $ticgit = TicGit.open(ARGV[0].chomp)
 $yui_version = '2.5.1'
 
 get('/screen.css') do
-  header 'Content-Type' => 'text/css; charset=utf-8'
+  headers 'Content-Type' => 'text/css; charset=utf-8'
   sass :screen
 end
 
@@ -33,6 +33,8 @@ end
 get('/') do
   @title = "All Tickets"
   @tickets = $ticgit.ticket_list(:order => 'date.desc')
+  @saved = $ticgit.ticket_list(:saved => params[:saved_view])
+
   haml :list
 end
 
@@ -49,7 +51,9 @@ get('/tickets/tags/:tag') do
 end
 
 get('/tickets/saved_views/:view') do
-  @tickets = $ticgit.ticket_list(:saved => params[:saved_view])
+  #@saved = $ticgit.ticket_list(:saved => params[:saved_view])
+  @saved = $ticgit.ticket_list(:order => 'date.desc')
+#  @tickets = $ticgit.ticket_list(:order => 'date.desc')
   @title = "#{params[:view].capitalize} View"
   haml :list
 end
@@ -93,7 +97,7 @@ put('/tickets/:id') do
   updated_tags = params[:ticket_tags].split(',').map { |t| t.strip }.to_set rescue Set.new
 
   tags_to_remove = (original_tags - updated_tags).to_a.join(',')
-  $ticgit.ticket_tag(tags_to_remove, params[:id], :remove => true)
+  $ticgit.ticket_tag(tags_to_remove, params[:id], :remove=>true)
 
   tags_to_add = (updated_tags - original_tags).to_a.join(',')
   $ticgit.ticket_tag(tags_to_add, params[:id])

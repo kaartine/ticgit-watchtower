@@ -26,11 +26,13 @@
             %a{:href => '/tickets/new'} New Ticket
         #SavedViews
           %h4 Saved Views:
+          - @saved
           - unless @saved.empty?
             %ul
-            - @saved.sort.each do |s|
+            - @saved.each do |s|
               %li
-                %a{:href => "/tickets/saved_views/#{s}"}= s
+                %a{:href => "/tickets/saved_views/#{s.name}"}= s
           - else
             %p You have no saved views
+
       #Main= yield
